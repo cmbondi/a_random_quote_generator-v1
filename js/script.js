@@ -10,9 +10,46 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
+const quotes = [
+ {
+   quote: "Logic is the beginning of wisdom, not the end.",
+   source: "Spock",
+   citation: "https://everydaypower.com/star-trek-quotes/",
+   subject: "Sci Fi"
+ },
+ {
+  quote: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
+  source: "Steve Jobs",
+  citation: "Stanford University Commencement Address",
+  year: "2005",
+  subject: "tech"
+},
+{
+  quote: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+  source: "Helen Keller",
+  citation: "https://quoteinvestigator.com/2012/07/18/best-not-seen/",
+  year: "1891"
+},
+{
+  quote: "You will face many defeats in life, but never let yourself be defeated.",
+  source: "Maya Angelou",
+  subject: "Life"
+},
+{
+  quote: "I have learned over the years that when one’s mind is made up, this diminishes fear; knowing what must be done does away with fear.",
+  source: "Rosa Parks",
+  citation: "from “Quiet Strength: the Faith, the Hope, and the Heart of a Woman Who Changed a Nation” (2000) by Rosa Parks with Gregory J. Reed ",
+  year: "2000"
+},
+{
+  quote: "We are not human beings having a spiritual experience. We are spiritual beings having a human experience.",
+  source: "Pierre Teilhard de Chardin",
+  citation: "https://www.brainyquote.com/quotes/pierre_teilhard_de_chardi_160888",
+  subject: "Spiritual"
+}
+];
 
-
-
+console.log(quotes);
 /***
  * `getRandomQuote` function
 ***/
@@ -30,4 +67,4 @@ project 1 - A Random Quote Generator
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+//document.getElementById('load-quote').addEventListener("click", printQuote, false);
