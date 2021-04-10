@@ -70,7 +70,7 @@ function printQuote() {
     htmlString += `<span class="year">${randomQuote.year}</span>`;
   }
   htmlString += `</p>`;
-  return htmlString;
+  return document.getElementById('quote-box').innerHTML = htmlString;
 }
 
 /***
