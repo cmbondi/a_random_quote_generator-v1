@@ -49,12 +49,13 @@ const quotes = [
 }
 ];
 
-console.log(quotes);
 /***
  * `getRandomQuote` function
 ***/
-
-
+function getRandomQuote() {
+  let ranNum = Math.floor(Math.random() * quotes.length);
+  return quotes[ranNum]['quote'];
+}
 
 /***
  * `printQuote` function
