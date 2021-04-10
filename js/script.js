@@ -54,18 +54,28 @@ const quotes = [
 ***/
 function getRandomQuote() {
   let ranNum = Math.floor(Math.random() * quotes.length);
-  return quotes[ranNum]['quote'];
+  return quotes[ranNum];
 }
 
 /***
  * `printQuote` function
 ***/
-
-
+function printQuote() {
+  let randomQuote = getRandomQuote();
+  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
+  if ( randomQuote.citation ) {
+    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
+  }
+  if ( randomQuote.year ) {
+    htmlString += `<span class="year">${randomQuote.year}</span>`;
+  }
+  htmlString += `</p>`;
+  return htmlString;
+}
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
