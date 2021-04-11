@@ -75,6 +75,21 @@ function changeBackGroundColor() {
 /***
  * `printQuote` function
 ***/
+window.setInterval(
+function intervalQuote() {
+  let randomQuote = getRandomQuote();
+  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
+  if ( randomQuote.citation ) {
+    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
+  }
+  if ( randomQuote.year ) {
+    htmlString += `<span class="year">${randomQuote.year}</span>`;
+  }
+  htmlString += `</p>`;
+  changeBackGroundColor();
+  return document.getElementById('quote-box').innerHTML = htmlString;
+}, 5000);
+
 function printQuote() {
   let randomQuote = getRandomQuote();
   let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
