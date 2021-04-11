@@ -8,7 +8,7 @@ project 1 - A Random Quote Generator
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
 /*** 
- * `quotes` array 
+ * `quotes` array  - Six quote objects inside the quotes array - extra credit property = subject
 ***/
 const quotes = [
  {
@@ -75,20 +75,6 @@ function changeBackGroundColor() {
 /***
  * `printQuote` function
 ***/
-window.setInterval(
-function intervalQuote() {
-  let randomQuote = getRandomQuote();
-  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
-  if ( randomQuote.citation ) {
-    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
-  }
-  if ( randomQuote.year ) {
-    htmlString += `<span class="year">${randomQuote.year}</span>`;
-  }
-  htmlString += `</p>`;
-  changeBackGroundColor();
-  return document.getElementById('quote-box').innerHTML = htmlString;
-}, 5000);
 
 function printQuote() {
   let randomQuote = getRandomQuote();
@@ -103,6 +89,26 @@ function printQuote() {
   changeBackGroundColor();
   return document.getElementById('quote-box').innerHTML = htmlString;
 }
+
+/***
+ * Additional`printQuote` function renamed intervalQuote  - extra credit to allow quote to refresh every 10 seconds
+***/
+
+window.setInterval(
+function intervalQuote() {
+  let randomQuote = getRandomQuote();
+  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
+  if ( randomQuote.citation ) {
+    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
+  }
+  if ( randomQuote.year ) {
+    htmlString += `<span class="year">${randomQuote.year}</span>`;
+  }
+  htmlString += `</p>`;
+  changeBackGroundColor();
+  return document.getElementById('quote-box').innerHTML = htmlString;
+}, 10000);
+
 
 /***
  * click event listener for the print quote button
