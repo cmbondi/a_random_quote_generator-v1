@@ -58,6 +58,21 @@ function getRandomQuote() {
 }
 
 /***
+ * Background Color change and random color for extra credit
+ * 
+ ***/
+
+function randomColor() {
+  let color = Math.floor(Math.random() * 255);
+  return color;
+}
+
+function changeBackGroundColor() {
+    let newColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+    return document.body.style.backgroundColor = newColor;
+  }
+
+/***
  * `printQuote` function
 ***/
 function printQuote() {
@@ -70,6 +85,7 @@ function printQuote() {
     htmlString += `<span class="year">${randomQuote.year}</span>`;
   }
   htmlString += `</p>`;
+  changeBackGroundColor();
   return document.getElementById('quote-box').innerHTML = htmlString;
 }
 
