@@ -3,9 +3,7 @@ Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
 
-// For assistance: 
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
+// NOTE - I am going for Exceeds Expectations for this project
 
 /*** 
  * `quotes` array  - Six quote objects inside the quotes array - extra credit property = subject
@@ -58,32 +56,32 @@ function getRandomQuote() {
 }
 
 /***
- * Background Color change and random color for extra credit
+ * Extra Credit - function to change to random background color, returns random rgb value
  * 
  ***/
 
-function randomColor() {
-  let color = Math.floor(Math.random() * 255);
-  return color;
+function changeBackGroundColor() {
+  let randomColor = () => Math.floor(Math.random() * 255);
+  let newColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+  return document.body.style.backgroundColor = newColor;
 }
 
-function changeBackGroundColor() {
-    let newColor = `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
-    return document.body.style.backgroundColor = newColor;
-  }
-
 /***
- * `printQuote` function
+ * `printQuote` function - prints quotes and checks for all optional properties as well as changing background color
 ***/
 
 function printQuote() {
   let randomQuote = getRandomQuote();
   let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
+  // If Statements for optional properties (including subject which is for extra credit)
   if ( randomQuote.citation ) {
     htmlString += `<span class="citation">${randomQuote.citation}</span>`;
   }
   if ( randomQuote.year ) {
     htmlString += `<span class="year">${randomQuote.year}</span>`;
+  }
+  if ( randomQuote.subject ) {
+    htmlString += `<span> - Subject: ${randomQuote.subject}</span>`;
   }
   htmlString += `</p>`;
   changeBackGroundColor();
@@ -91,24 +89,10 @@ function printQuote() {
 }
 
 /***
- * Additional`printQuote` function renamed intervalQuote  - extra credit to allow quote to refresh every 10 seconds
+ * Extra Credit - use setInterval() to refresh page every 10 seconds
 ***/
 
-window.setInterval(
-function intervalQuote() {
-  let randomQuote = getRandomQuote();
-  let htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
-  if ( randomQuote.citation ) {
-    htmlString += `<span class="citation">${randomQuote.citation}</span>`;
-  }
-  if ( randomQuote.year ) {
-    htmlString += `<span class="year">${randomQuote.year}</span>`;
-  }
-  htmlString += `</p>`;
-  changeBackGroundColor();
-  return document.getElementById('quote-box').innerHTML = htmlString;
-}, 10000);
-
+window.setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
